@@ -1,0 +1,189 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  font-size: 62.5%;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@media screen and (max-width: 520px) {
+  html, body {
+    /* don't know how to set default units to rem in mojs :(( */
+  }
+}
+/* El velo negro que cubre todo */
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000; /* Negro total */
+  z-index: 9999; /* Asegura que esté por encima de todo */
+  
+  /* Aplicamos la animación */
+  animation: fadeOut 1.5s ease-in-out forwards;
+  animation-delay: 3s; /* Aquí controlas el tiempo de espera */
+  pointer-events: none; /* Para que al ser invisible no bloquee clics */
+}
+
+/* Animación para desaparecer */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+/* Añade esto a tu .container o a los elementos que quieras animar */
+.container, .content-flor, .isaacphoto1, .isaacphoto2, .isaacphoto3, .isaacphoto4 {
+  opacity: 0; /* Empiezan invisibles */
+  animation: fadeInContent 1.5s ease-in-out forwards;
+  animation-delay: 3.5s; /* Empiezan a aparecer un poco después que el velo */
+}
+
+@keyframes fadeInContent {
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 50rem;
+  height: 20rem;
+  position: relative;
+}
+
+.svg-container {
+  z-index: 2;
+  position: absolute;
+}
+
+.mo-container {
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  fill: none;
+  stroke: #a8a3a3;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+.lttr {
+  fill: #763C8C;
+}
+
+.sound {
+  position: fixed;
+  color: #000000;
+  font-size: 1.6rem;
+  bottom: 1rem;
+  right: 1rem;
+  text-decoration: underline;
+  cursor: default;
+}
+.sound--off {
+  text-decoration: line-through;
+}
+
+.content-flor {
+  position: absolute;
+  left: 50%;
+  top: 20vh;
+  transform: translate(-50%, -50%);
+}
+
+.flor {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #763C8C;
+  border: 2px solid #fff;
+  animation: scaleUp 1s ease-in-out;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.photoour {
+  position: absolute;
+  top: 70%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+
+  max-width: 30%;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  animation: beat 1s ease-in-out infinite alternate;
+}
+
+@keyframes beat {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+
+
+
+.isaacphoto1 {
+  position: absolute;
+  top: 70%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.isaacphoto2 {
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  z-index: 1;
+  }
+.isaacphoto3 {
+  position: absolute;
+  top: 90%;
+  left: 59%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.isaacphoto4 {
+  position: absolute;
+  top: 10%;
+  left: 59%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;    
+  z-index: 1;
+}
